@@ -1,19 +1,31 @@
 .ul{
     list-style-type: none;
     display: flex;
-    background-color: black;
+    background-color: rgba(104, 101, 68, 0.923);
+  box-shadow: 10px 7px 30px rgba(135, 132, 132, 0.527);   
+
     color: white;
+    margin-bottom: 0px;
+    border-bottom: 5px solid rgb(227, 225, 220);
+    
     a {
         text-decoration: none;
         color: beige;
+  font-family: "Quattrocento Sans", sans-serif;
+
     }
     a:hover{
-        color: aqua;
-        text-decoration:  underline;
+        color: rgb(0, 0, 0);
+        // text-decoration:  ;
+    border-bottom: 1px solid rgb(4, 4, 4);
+
+
     }
     
     li{
     margin-left: 30px;
+    // border-bottom: 1px solid white;
+    // border-radius: 10px;
     
 
     }

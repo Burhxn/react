@@ -1,11 +1,83 @@
-
-import React from 'react'
-import "../styles/Services.scss"
+import React, { useEffect, useState } from "react";
+import "../styles/Services.scss";
+import Card from "./sharedcomponents/Card"
 
 const Services = () => {
-  return (
-    <div className='services' >Services</div>
-  )
-}
+  // frontend logic
 
-export default Services
+  const [photos, setPhotos] = useState([]);
+  const [query, setQuery] = useState("hello");
+  const [loading, setLoading] = useState(false);
+
+  const fetchData = async (query) => {
+    try {
+      const res = await fetch(
+        `https://api.pexels.com/v1/search?query=${query}&per_page=80`,
+        {
+          method: "GET",
+          headers: {
+            Authorization:
+              "A18L6UPAOtZeFZ4vLDzj2fO4wTeto2iIb2aqtyo2EA3agRXRdEN6YFRV",
+          },
+        }
+      );
+
+      const data = await res.json();
+
+      setPhotos(data.photos);
+
+      console.log(data.photos);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData(query);
+  }, [loading]);
+
+  return (
+    <div className="services">
+      <div class="loading">
+        <div class="loading-text">
+            <span class="loading-text-words">I</span>
+            <span class="loading-text-words">M</span>
+            <span class="loading-text-words">A</span>
+            <span class="loading-text-words">G</span>
+            <span class="loading-text-words">E</span>
+            <span class="loading-text-words">S</span>
+        </div>
+    </div>
+
+      <div className="input">
+        {" "}
+        <input
+          placeholder="Search"
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+          }}
+        />
+        <button
+          onClick={() => {
+            setLoading(!loading);
+          }}
+        >
+          search
+        </button>
+      </div>
+
+      <div className="cards">
+        {photos.map((element) => (
+          <Card
+            id={element.id}
+            auth={element.photographer}
+            src={element.src.medium}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Services;

@@ -1,4 +1,165 @@
-.services{
-    min-height: 70vh;
+.services {
+    min-height: 90vh;
+    background-color: rgba(167, 171, 130, 0.782);
+    
+  
+  
+  
+    >h1{
+      text-align: center;
+    }
+  
+    >.input{
+      width: 300px;
+      margin: auto;
+      >input{
+          padding: 5px 10px ;
+          border: none;
+          border: 1px solid rgba(0, 0, 0, 0.452);
+          // border-left: 1px solid black;
+          border-radius: 5px;
+          font-family: monospace;
 
+          margin-right: 20px;
+          
+      }
+      >button{
+          color: white;
+          background-color: rgb(51, 51, 57);
+          padding: 5px 10px ;
+          border-radius: 7px;
+          border: none;
+      }
+      >button:hover{
+
+        background-color: black
+
+      }
+    }
+  
+    > .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      margin: auto;
+      margin-top: 30px;
+    // box-shadow: 10px 7px 30px rgb(15, 14, 13);   
+
+      > .card {
+       
+        border-radius: 5px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    box-shadow: 10px 7px 30px rgb(15, 14, 13);   
+
+        padding: 10px;
+  
+        > img {
+          border-radius: 7px;
+          width: 100%;
+        }
+  
+        > span {
+         font-family: cursive;
+         font-style: italic;
+        }
+      }
+    }
+  }
+
+
+  
+@import url(https://fonts.googleapis.com/css?family=Quattrocento+Sans);
+.loading {
+  // position:fixed;
+  
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: #b9bb9d2a;
+  z-index: 9999;
+  margin-bottom: 50px;
+  box-shadow: 10px 7px 30px rgb(74, 69, 64);   
+
+}
+.loading-text-words{
+    font-size: 24px;
+}
+
+.loading-text {
+  // position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+}
+.loading-text span {
+  display: inline-block;
+  margin: 0 5px;
+  color: #6c6666;
+  font-family: "Quattrocento Sans", sans-serif;
+}
+.loading-text span:nth-child(1) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 0s infinite linear alternate;
+          animation: blur-text 1.5s 0s infinite linear alternate;
+}
+.loading-text span:nth-child(2) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 0.2s infinite linear alternate;
+          animation: blur-text 1.5s 0.2s infinite linear alternate;
+}
+.loading-text span:nth-child(3) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 0.4s infinite linear alternate;
+          animation: blur-text 1.5s 0.4s infinite linear alternate;
+}
+.loading-text span:nth-child(4) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 0.6s infinite linear alternate;
+          animation: blur-text 1.5s 0.6s infinite linear alternate;
+}
+.loading-text span:nth-child(5) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 0.8s infinite linear alternate;
+          animation: blur-text 1.5s 0.8s infinite linear alternate;
+}
+.loading-text span:nth-child(6) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 1s infinite linear alternate;
+          animation: blur-text 1.5s 1s infinite linear alternate;
+}
+.loading-text span:nth-child(7) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 1.2s infinite linear alternate;
+          animation: blur-text 1.5s 1.2s infinite linear alternate;
+}
+
+@-webkit-keyframes blur-text {
+  0% {
+    filter: blur(0px);
+  }
+  100% {
+    filter: blur(4px);
+  }
+}
+
+@keyframes blur-text {
+  0% {
+    filter: blur(0px);
+  }
+  100% {
+    filter: blur(4px);
+  }
 }
