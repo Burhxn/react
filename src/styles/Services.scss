@@ -1,7 +1,8 @@
 .services {
     min-height: 90vh;
-    background-color: rgba(167, 171, 130, 0.782);
     
+    // background-color: rgba(167, 171, 130, 0.782);
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   
   
   
@@ -15,24 +16,32 @@
       >input{
           padding: 5px 10px ;
           border: none;
-          border: 1px solid rgba(0, 0, 0, 0.452);
+          border: 1px solid rgba(236, 211, 211, 0.895);
           // border-left: 1px solid black;
-          border-radius: 5px;
-          font-family: monospace;
+          border-radius: 10px;
+          // font-family: monospace;
 
           margin-right: 20px;
+  box-shadow: 10px 10px 10px rgba(9, 9, 9, 0.816);   
+
           
       }
       >button{
-          color: white;
-          background-color: rgb(51, 51, 57);
+          color: rgb(224, 216, 216);
+
+          background-color: rgba(8, 8, 8, 0.945);
           padding: 5px 10px ;
-          border-radius: 7px;
+          border-radius: 10px;
           border: none;
+          font-weight: 200;
+  box-shadow: 10px 10px 1cqb rgba(30, 30, 30, 0.816);   
+
       }
       >button:hover{
-
-        background-color: black
+        color: black;
+        cursor: pointer;
+    // border-top: 2px solid white;
+        background-color: white;
 
       }
     }
@@ -80,16 +89,20 @@
   
   top: 0;
   left: 0;
-  width: 100%;
+  width: 50%;
   height: 30%;
-  background: #b9bb9d2a;
+  // background: #1717172a;
+  
   z-index: 9999;
   margin-bottom: 50px;
-  box-shadow: 10px 7px 30px rgb(74, 69, 64);   
+  margin-left: 25%;
+  // text-decoration: underline;
+  // box-shadow: 10px 100px 60px rgb(87, 85, 83);   
 
 }
 .loading-text-words{
     font-size: 24px;
+    font-weight: 600;
 }
 
 .loading-text {
