@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Services.scss";
-import Card from "./sharedcomponents/Card"
+import Card from "./sharedcomponents/Card.jsx";
+import Authorized from "../authorization/Authorized";
 
 const Services = () => {
   // frontend logic
+
+  Authorized();
 
   const [photos, setPhotos] = useState([]);
   const [query, setQuery] = useState("hello");
@@ -34,20 +37,11 @@ const Services = () => {
 
   useEffect(() => {
     fetchData(query);
-  }, [loading]);
+  }, [loading , 2000]);
 
   return (
     <div className="services">
-      <div class="loading">
-        <div class="loading-text">
-            <span class="loading-text-words">I</span>
-            <span class="loading-text-words">M</span>
-            <span class="loading-text-words">A</span>
-            <span class="loading-text-words">G</span>
-            <span class="loading-text-words">E</span>
-            <span class="loading-text-words">S</span>
-        </div>
-    </div>
+      <h1> My Gallery</h1>
 
       <div className="input">
         {" "}

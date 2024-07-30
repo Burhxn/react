@@ -12,6 +12,7 @@ function Navbar(){
                 <li> <Link to ="/services"> Services </Link> </li>
                 <li> <Link to ="/about"> About </Link> </li>
                 <li> <Link to ="/secureIndex"> Secured </Link> </li>
+                <li> <Link to ="/blogs"> Blogs </Link> </li>
                 
             </ul>
 
