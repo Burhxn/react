@@ -1,27 +1,35 @@
-// from node modules 
+// from node modules
 
-import React, { useEffect, useState } from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-
-// local imports // static import
+// local imports or  // static import
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
+import Home from "./components/sharedComponents/Home";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
-import Services from "./components/Services";
 import About from "./components/About";
 import NoPage from "./components/NoPage";
-import Blogs from "./components/Blogs";
-import SignUp from "./components/Signup";
+
+import SignUp from "./components/SignUp";
 import Login from "./components/Login";
+import Loading from "./components/Loading";
+import Index from "./components/Index";
+import Counter from "./components/Counter";
 
+// lazy import or // dynamic import
+const SecureIndex = React.lazy(() => delay(import("./components/SecureIndex")));
+const Services = React.lazy(() => delay(import("./components/Services")));
+const Blogs = React.lazy(() => delay(import("./components/Blogs")));
 
-// lazy import // dynamic import 
-const SecureIndex = React.lazy(()=>{import("./components/SecureIndex")})
+// delay is an async function which will delay importing of file by 2 seconds
 
-
-
+async function delay(promise) {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 1000);
+  });
+  return promise;
+}
 
 const App = () => {
   // u can do authorization as this or u can just create custom hook by using HOC
@@ -48,17 +56,40 @@ const App = () => {
         <Routes>
           {/* unspecified path */}
           <Route path="*" element={<NoPage />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Index/>} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/counter" element={<Counter />} />
           <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/blogs" element={<Blogs />} />
+          <Route
+            path="/services"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Services />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/blogs"
+            element={
+              <Suspense fallback={<Loading />}>
+                {" "}
+                <Blogs />{" "}
+              </Suspense>
+            }
+          />
+          <Route
+            path="/secureIndex"
+            element={
+              <Suspense fallback={<Loading />}>
+                <SecureIndex />
+              </Suspense>
+            }
+          />
 
           {/* conditional rendering using ternary operator */}
-
-          <Route path="/secureIndex" element={<SecureIndex />} />
+          {/* <Route path="/secureIndex" element={auth ? <SecureIndex/>:<Login/>}/> */}
         </Routes>
 
         <Footer />

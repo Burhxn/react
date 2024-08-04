@@ -6,6 +6,7 @@ const Contact = (props) => {
     <div className='contact'>
 
     <h1> For further details contact : {props.y}</h1>
+    <div className="bc"></div>
 
 
 

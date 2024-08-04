@@ -4,12 +4,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url("../assets/white-wallpapers-6.png");
+    background-size: cover;
    
   
   
     > .main {
-  
-      background-color: rgba(250, 235, 215, 0.589);
+  background-size: contain;
+      // background-color: rgba(250, 235, 215, 0.589);
       height: 400px;
       width: 400px;
       border-radius: 10px;
@@ -19,7 +21,9 @@
   
       > h1 {
           text-align: center;
+          color: rgb(108, 104, 99);
           margin: 20px ,0;
+          
       }
       > .form {
           display: flex;

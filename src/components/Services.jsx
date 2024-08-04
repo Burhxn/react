@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useTransition } from "react";
 import "../styles/Services.scss";
-import Card from "./sharedcomponents/Card.jsx";
+import Card from "./sharedComponents/Card";
 import Authorized from "../authorization/Authorized";
+import Home from "./sharedComponents/Home";
 
 const Services = () => {
   // frontend logic
@@ -9,8 +10,10 @@ const Services = () => {
   Authorized();
 
   const [photos, setPhotos] = useState([]);
-  const [query, setQuery] = useState("hello");
+  const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
+  const [auth, setAuth] = useState(true);
+  const [istransit, setTransition] = useTransition();
 
   const fetchData = async (query) => {
     try {
@@ -36,10 +39,24 @@ const Services = () => {
   };
 
   useEffect(() => {
-    fetchData(query);
-  }, [loading , 2000]);
+    if (auth) {
+      fetchData("nature").then(() => {
+        setAuth(false);
+      });
+    }
+  }, [auth]);
+
+  useEffect(() => {
+    if (loading) {
+      fetchData(query).then(() => {
+        setLoading(false);
+      });
+    }
+  }, [loading, query]);
 
   return (
+    <>
+    <Home/>
     <div className="services">
       <h1> My Gallery</h1>
 
@@ -49,12 +66,14 @@ const Services = () => {
           placeholder="Search"
           value={query}
           onChange={(e) => {
-            setQuery(e.target.value);
+            setTransition(() => {
+              setQuery(e.target.value);
+            });
           }}
         />
         <button
           onClick={() => {
-            setLoading(!loading);
+            setLoading(true);
           }}
         >
           search
@@ -71,6 +90,7 @@ const Services = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 
